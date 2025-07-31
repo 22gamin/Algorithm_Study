@@ -26,7 +26,7 @@ public class B1847 {
 				result.add("+");
 			}
 			if( st.peek() != a) {
-				bw.write("No\n");
+				bw.write("NO\n");
 				chk=true;
 				break;
 			}
