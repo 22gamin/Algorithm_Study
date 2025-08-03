@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Main {
 	static int n;
-	static int [][] arr; //이닝당 기록
+	static int [][] arr; //이닝당 기록.
 	static int [] order;
 	static int [] bMap; //야구 주자 관리 배열
 	static int [] visit;
