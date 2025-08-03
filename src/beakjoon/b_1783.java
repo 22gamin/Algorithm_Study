@@ -17,7 +17,7 @@ public class b_1783 {
 
         //7칸이면 4번의 이동방법 다씀 -> m의 길이가 7이상이면 이후에는 적게 이동하는 (2,1)->(-2,1) 반복
         if (n==1)
-            answer = 1;
+            answer =  1;
 
         else if (n==2)
             answer = Math.min(4,(m+1)/2);
