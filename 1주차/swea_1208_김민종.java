@@ -12,13 +12,13 @@ public class swea_1208_김민종 {
                 field[i] = sc.nextInt();
             }
 
-            for(int i = 0; i < dump; i++){
+            while(dump-- > 0) {
                 int max = 0;
                 int min = 0;
 
-                for(int j = 1; j < 100; j++){
-                    if(field[j] > field[max]) max = j;
-                    if(field[j] < field[min]) min = j;
+                for(int i = 1; i < 100; i++){
+                    if(field[i] > field[max]) max = i;
+                    if(field[i] < field[min]) min = i;
                 }
 
                 if(field[max] - field[min] <= 1) break;     //높이차 안나면 종료
