@@ -21,9 +21,9 @@ public class B2493 {
         String[] str = br.readLine().split(" ");
         for(int i=0; i<n; i++){
             top[i] = Integer.parseInt(str[i]);
-            // 들어올떄마다 관리
+            // 들어올때마다 관리
 
-            // 비거나, 스택에 들어가있는 탑 인덱스의 높이 보다 클경우
+            // 비어있지않고, 스택에 들어가있는 탑 인덱스의 높이 보다 클경우
             while(!st.isEmpty() && top[i]>top[st.peek()]){
                 // 수신x
                 st.pop();
