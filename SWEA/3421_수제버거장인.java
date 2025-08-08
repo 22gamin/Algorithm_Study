@@ -21,7 +21,6 @@ public class Solution {
                 sang.add(new ArrayList<>());
             }
              
-         
              
             for(int i = 0; i<m; i++) {
                 StringTokenizer st2 = new StringTokenizer(br.readLine());
@@ -32,8 +31,6 @@ public class Solution {
                 sang.get(a).add(b);
                 sang.get(b).add(a);
              
-                 
-                 
              
             }
  
@@ -45,10 +42,6 @@ public class Solution {
                  
             }
              
-             
-             
-             
-         
              
             System.out.println("#"+tc+" "+count);
              
