@@ -13,7 +13,7 @@ public class swea_6808_김민종 {
             StringTokenizer st = new StringTokenizer(br.readLine());
 
             
-            boolean[] get = new boolean[19];
+            boolean[] get = new boolean[19];                //18장의 카드 중 인영이꺼 확인용
 
             for(int i = 0; i < 9; i++){                     //규영이 카드 채우고
                 G[i] = Integer.parseInt(st.nextToken());
@@ -39,18 +39,18 @@ public class swea_6808_김민종 {
     }
     static void fx(int d, int Gscore, int Iscore){
         if(d == 9){
-            if(Gscore > Iscore) win++;
-            else lose++;
+            if(Gscore > Iscore) win++;      //규영이 승
+            else lose++;                    //규영이 패
             return;
         }
         for(int i = 0; i < 9; i++){
             if(!use[i]){
-                use[i] = true;
-                int sum = G[d] + I[i];
+                use[i] = true;                      //한 번 쓴 카드는 다시 못쓰게 true 처리
+                int sum = G[d] + I[i];              //얻을 점수
                 if(G[d] > I[i]){
-                    fx(d + 1, Gscore + sum, Iscore);
+                    fx(d + 1, Gscore + sum, Iscore);    //규영이 점수+
                 }else {
-                    fx(d + 1, Gscore, Iscore + sum);
+                    fx(d + 1, Gscore, Iscore + sum);    //인영이 점수+
                 }
                 use[i] = false;
             }
