@@ -1,7 +1,7 @@
 package beakjoon;
 
-import java.io.*;
-import java.util.*;
+//import java.io.*;
+//import java.util.*;
 
 public class b_2667 {
 
