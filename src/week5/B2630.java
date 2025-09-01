@@ -11,13 +11,12 @@ public class B2630 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
-        map = new int [n][n];
+        map = new int[n][n];
         cnt = new int[2];
-        for(int i =0; i<n; i++){
+        for(int i=0; i<n; i++){
             StringTokenizer st = new StringTokenizer(br.readLine());
             for(int j=0; j<n; j++){
-                int a = Integer.parseInt(st.nextToken());
-                map[i][j] = a;
+                map[i][j] = Integer.parseInt(st.nextToken());
             }
         }
         dfs(0,0,n);
@@ -25,23 +24,21 @@ public class B2630 {
         System.out.println(cnt[1]);
     }
     public static void dfs(int x, int y, int n){
-        if(chk(x,y,n)){
+        if(chk(x, y, n)){
             cnt[map[x][y]]++;
             return;
         }
-        int s = n/2;
-        // 4등분
+        int c = n/2;
         for(int i=0; i<2; i++){
             for(int j=0; j<2; j++){
-                // 4구역 각 첫번째 좌표
-                dfs(x + i*s, y + j*s, s);
+                dfs(x+ i*c, y+j*c, c);
             }
         }
     }
     public static boolean chk(int x, int y, int n){
-        for(int i = x; i< n+x; i++){
-            for(int j = y; j< y+n; j++){
-                if(map[i][j] != map[x][y]) return false;
+        for(int i = x; i<x+n; i++){
+            for(int j = y; j<y+n; j++){
+                if(map[x][y] != map[i][j]) return false;
             }
         }
         return true;
