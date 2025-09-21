@@ -98,4 +98,3 @@ public class s_2115 {
         findMaxSubsetProfit(index + 1, currentHoneySum, currentProfit, block);
     }
 }
-}
