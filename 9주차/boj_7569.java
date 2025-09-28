@@ -65,7 +65,6 @@ public class boj_7569 {
                 }
             }
         }
-
         System.out.println(max - 1);
     }
 }
