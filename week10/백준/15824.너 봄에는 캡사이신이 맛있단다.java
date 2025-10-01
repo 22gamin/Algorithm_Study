@@ -1,5 +1,5 @@
 import java.util.*;
-import java.io.*;
+import java.io.*;https://github.com/22gamin/Algorithm_Study/blob/SY/10week/%EB%B0%B1%EC%A4%80/15824.%EB%84%88%20%EB%B4%84%EC%97%90%EB%8A%94%20%EC%BA%A1%EC%82%AC%EC%9D%B4%EC%8B%A0%EC%9D%B4%20%EB%A7%9B%EC%9E%88%EB%8B%A8%EB%8B%A4.java
 
 
 public class Main {
