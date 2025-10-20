@@ -100,7 +100,12 @@ public class boj_16236 {
                             ansY = nY;
                         } // 거리가 같으면
                         else if (curD == minD) {
-                            if (ansY == -1 || nY < ansY || (nY == ansY && nX < ansX)) {
+                            // 위에 있는거부터
+                            if (nY < ansY) {
+                                ansX = nX;
+                                ansY = nY;
+                            } // 그 다음은 왼쪽에 있는거
+                            else if (nY == ansY && nX < ansX) {
                                 ansX = nX;
                                 ansY = nY;
                             }
