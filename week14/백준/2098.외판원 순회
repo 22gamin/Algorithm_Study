@@ -1,0 +1,72 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	
+	static int n;
+	static int[][] w; 
+	static int findMask;
+	
+	static int[][] dp;
+	static final int INF =100000000;
+	@SuppressWarnings("unchecked")
+	public static void main(String[] args)throws IOException {
+		System.setIn(new FileInputStream("test.txt"));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		n= Integer.parseInt(br.readLine());
+		w=new int[n][n];
+		findMask = (1<<n)-1;
+		
+		for(int i = 0; i<n ;i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			for(int j =0; j<n; j++) {
+				int a = Integer.parseInt(st.nextToken());
+				w[i][j] = a;
+			}
+		}
+		
+		dp = new int[n][findMask+1];
+		
+		for(int i = 0 ; i<n; i++) {
+			Arrays.fill(dp[i], -1);
+		}
+		
+		tsp(0,1); 
+		
+		System.out.println(dp[0][1]);
+	}
+	
+	public static int tsp (int cur, int mask) {	
+		
+		if(dp[cur][mask]!=-1) {
+			return dp[cur][mask];
+		}
+		
+		if( mask==findMask ) {
+			if(w[cur][0]>0) {
+				return dp[cur][mask] = w[cur][0];
+				
+			}else {
+				return dp[cur][mask] = INF;
+			}
+		}
+		
+		
+		dp[cur][mask] = INF;
+		
+		for(int next = 0; next<n; next++) {
+			if( (mask&(1<<next))==0 && w[cur][next]!=0 ) {
+				dp[cur][mask] = Math.min(dp[cur][mask], 
+						tsp(next,mask|(1<<next))+w[cur][next]);
+			}
+		}
+		
+		
+		return dp[cur][mask];
+		
+		
+		
+	}
+		
+		
+}
