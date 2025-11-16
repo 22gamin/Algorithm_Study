@@ -1,0 +1,153 @@
+import java.io.*;
+import java.util.*;
+
+public class Main {
+	
+	
+	static class Problem implements Comparable<Problem>{
+		int l;
+		int num;
+		int g;
+		Problem(int num,int l, int g){
+			this.l =l;
+			this.num = num;
+			this.g = g;
+		}
+		
+		@Override
+		public int compareTo(Problem T) {
+			if(this.l == T.l) {
+				return this.num - T.num;
+			}else {
+				return this.l - T.l;
+			}
+		}
+	}
+	
+	
+	static int n,m ;
+	static Problem[] prob; //번호별로 문제 객체를 저장
+	static TreeSet<Problem> [] set; //그룹별로 문제 난이도 순과 번호순으로 저장할 트리셋
+	static TreeSet<Problem> all;
+	static StringBuilder sb;
+	static Problem mock;
+	
+	
+ 	@SuppressWarnings("unchecked")
+	public static void main(String[] args)throws IOException {
+		System.setIn(new FileInputStream("test.txt"));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		n = Integer.parseInt(br.readLine( ));
+		prob = new Problem[100001];
+		set = new TreeSet[101];
+		sb = new StringBuilder();
+		mock = new Problem(0,0,0);
+		all = new TreeSet<>();
+		
+		for(int i =1; i<=100; i++) {
+			set[i] = new TreeSet<>();
+		}
+		
+		for(int i = 0 ; i<n ; i++) {
+			StringTokenizer st  = new StringTokenizer(br.readLine());
+			int p = Integer.parseInt(st.nextToken());
+			int l =  Integer.parseInt(st.nextToken());
+			int g =  Integer.parseInt(st.nextToken());
+			Problem a = new Problem(p,l,g);
+			prob[p] = a;
+			set[g].add(a); 
+			all.add(a);
+		}
+		
+		
+		m = Integer.parseInt(br.readLine( ));
+		
+		for(int i  = 0 ; i<m; i++) {
+			StringTokenizer st2  = new StringTokenizer(br.readLine());
+			
+			String query = st2.nextToken();
+			
+			if(query.equals("add")) {
+				int p = Integer.parseInt(st2.nextToken());
+			    int l = Integer.parseInt(st2.nextToken());
+			    int g = Integer.parseInt(st2.nextToken());
+
+			   
+			    if(prob[p] != null) {
+			        Problem old = prob[p];
+			        set[old.g].remove(old);
+			        all.remove(old);
+			    }
+
+			    Problem a = new Problem(p, l, g);
+			    prob[p] = a;
+			    set[g].add(a);
+			    all.add(a);
+				 
+			}else if(query.equals("solved")) {
+				int p = Integer.parseInt(st2.nextToken());
+				Problem a= prob[p];
+				int g = a.g;
+				set[g].remove(a);
+				all.remove(a);
+				
+			}else if(query.equals("recommend")) {
+				int g = Integer.parseInt(st2.nextToken());
+				int x = Integer.parseInt(st2.nextToken());
+				
+				if(x==1) {
+					sb.append(set[g].last().num).append("\n");
+				}else {
+					sb.append(set[g].first().num).append("\n");
+				}
+				
+				
+				
+			}else if(query.equals("recommend2")) {
+				Problem result = null;
+				
+				
+				int x = Integer.parseInt(st2.nextToken());
+				
+				if(x==1) {
+					result = all.last();
+				}else {
+					result = all.first();
+					
+				}
+				sb.append(result.num).append("\n");
+			
+				
+			}else if(query.equals("recommend3")) {
+				int x = Integer.parseInt(st2.nextToken());
+				int l = Integer.parseInt(st2.nextToken());
+				Problem result = null;
+				
+				if(x ==1  ) {
+					mock.num = 0;
+					mock.l = l;
+					result = all.ceiling(mock);
+					
+		
+				}else {
+					mock.num = 0;
+					mock.l = l;
+					result = all.lower(mock); 
+				}
+				if(result == null) {
+					sb.append(-1).append("\n");
+				}else {
+					sb.append(result.num).append("\n");
+				}
+				
+			}
+			
+			
+			
+		}
+		
+		System.out.println(sb.toString());
+ 	}
+		
+}
