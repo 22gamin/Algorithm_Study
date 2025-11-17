@@ -1,0 +1,31 @@
+package xweek17;
+
+import java.util.*;
+import java.io.*;
+
+public class b_9935 {
+
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String str = br.readLine();
+		String comm = br.readLine();
+		
+		StringBuilder sb = new StringBuilder();
+		
+		for(int s=0; s<str.length(); s++) {
+			sb.append(str.charAt(s));
+			
+			if((sb.length()>=comm.length()) && sb.substring(sb.length()-comm.length(),sb.length()).equals(comm) ) {
+				sb.delete(sb.length()-comm.length(),sb.length());
+			}
+		}
+		
+		//StirngBuilder를 스택처럼 풀자!!!!
+		if (sb.length()==0) {
+			System.out.println("FRULA");
+		} else {
+			System.out.println(sb);
+		}
+	}
+
+}
