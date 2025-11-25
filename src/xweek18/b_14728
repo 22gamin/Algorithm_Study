@@ -1,0 +1,30 @@
+package xweek18;
+
+import java.util.*;
+import java.io.*;
+
+
+public class b_14728 {
+
+	public static void main(String[] args) throws Exception{
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int N = Integer.parseInt(st.nextToken());
+		int T = Integer.parseInt(st.nextToken());
+		
+		int[] dp = new int[T+1];
+		
+		for(int n =0; n<N; n++) {
+			st = new StringTokenizer(br.readLine());
+			int K = Integer.parseInt(st.nextToken());
+			int S = Integer.parseInt(st.nextToken());
+			
+			for(int t = T; t>= K; t--) {
+				dp[t] = Math.max(dp[t], dp[t-K] + S);
+			}
+		} 
+		System.out.println(dp[T]);
+		
+	}
+
+}
