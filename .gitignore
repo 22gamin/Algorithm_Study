@@ -1,0 +1,8 @@
+# Java 컴파일 결과
+*.class
+
+# VS Code 설정
+.vscode/
+
+# 기타
+.DS_Store
