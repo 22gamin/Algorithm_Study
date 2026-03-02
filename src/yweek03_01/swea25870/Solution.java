@@ -1,4 +1,4 @@
-package yweek02_04;
+package yweek03_01.swea25870;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

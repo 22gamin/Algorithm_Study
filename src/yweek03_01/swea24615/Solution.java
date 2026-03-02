@@ -1,4 +1,6 @@
-package yweek02_03;
+package yweek03_01.swea24615;
+
+import yweek03_01.swea24615.UserSolution;
 
 import java.util.Scanner;
 
@@ -65,7 +67,7 @@ class Solution {
     }
 
     public static void main(String[] args) throws Exception {
-        System.setIn(new java.io.FileInputStream("C:\\Users\\sangjikim\\JavaProject\\Algorithm_Study\\src\\yweek03_01\\sample_input.txt"));
+        System.setIn(new java.io.FileInputStream("C:\\Users\\sangjikim\\JavaProject\\Algorithm_Study\\src\\yweek0219\\sample_input.txt"));
         sc = new Scanner(System.in);
 
         int TC = sc.nextInt();
