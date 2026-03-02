@@ -1,4 +1,4 @@
-package yweek0219;
+package yweek02_03;
 
 import java.util.Scanner;
 
