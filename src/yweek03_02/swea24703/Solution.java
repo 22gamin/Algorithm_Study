@@ -64,6 +64,7 @@ class Solution {
                 int ret = usersolution.checkStructures(mLengths, mUpShapes, mDownShapes);
                 int ans = sc.nextInt();
                 if (ans != ret) {
+                    System.out.println("❌ [CHECK 틀림] 기대한 개수: " + ans + " / 내 코드 결과: " + ret);
                     ok = false;
                 }
             } else if (query == CMD_ADD) {
@@ -82,6 +83,7 @@ class Solution {
                 int ret = usersolution.addStructures(mLengths, mUpShapes, mDownShapes);
                 int ans = (int)sc.nextFloat();
                 if (ans != ret) {
+                    System.out.println("❌ [ADD 틀림] 기대한 정답 포맷: " + ans + " / 내 코드 반환값: " + ret);
                     ok = false;
                 }
             } else if (query == CMD_POUR) {
@@ -95,6 +97,7 @@ class Solution {
                     ans_used = sc.nextInt();
                 }
                 if (ans != 0 && (ans != ret.ID || ans_height != ret.height || ans_used != ret.used)) {
+                    System.out.println("❌ [POUR 틀림] 기대 ID: " + ans + "(내거:" + ret.ID + "), 높이: " + ans_height + "(내거:" + ret.height + ")");
                     ok = false;
                 } else if (ans == 0 && ret.ID != 0) {
                     ok = false;
